@@ -22,7 +22,7 @@ public class TesteAlunoDAO {
 	private static void testeCadastrar() {
 		Aluno aluno = new Aluno();
 		
-		aluno.setNome("Allan");
+		aluno.setNome("Silva");
 		aluno.setMatricula("201410211");
 		aluno.setSenha("123456");
 		aluno.setCpf("07734712436");
@@ -41,9 +41,9 @@ public class TesteAlunoDAO {
 	
 	private static void testeAlterar(){
 		Aluno aluno = new Aluno();
-		aluno.setId(2);
-		//aluno.setNome("jao da silva");
-		//aluno.setSenha("js123");
+		aluno.setId(3);
+		aluno.setNome("zé silva");
+		aluno.setSenha("123");
 		
 		AlunoDAO alunoDao = new AlunoDAO();
 		alunoDao.alterar(aluno);
@@ -62,23 +62,24 @@ public class TesteAlunoDAO {
 		List<Aluno> listaResultado = alunoDao.buscaTodos();
 		
 		for(Aluno u: listaResultado){
-			System.out.println(u.getId()+" "+u.getNome()+" "+u.getNome()+" "+u.getSenha());
+			System.out.println(u.getId()+" "+u.getNome()+" "+u.getMatricula()+" "+u.getSenha());
 		}
 	}
 	
 	public static void  testeAutenticar(){
 		Aluno aluno = new Aluno();
+		aluno.setMatricula("201410211");
 		aluno.setSenha("123456");
 		
 		AlunoDAO alunoDao = new AlunoDAO();
-		System.out.println(alunoDao.autenticar(aluno));
-				
+		System.out.println(alunoDao.verificarAluno(aluno.getMatricula(), aluno.getSenha()));
+		System.out.println("Sucesso!");
 	}
 	
 	public static void  testeBuscarPorId(){
 		AlunoDAO alunoDao = new AlunoDAO();
 		
-		Aluno alunoRetorno = alunoDao.buscarPorId(10);
+		Aluno alunoRetorno = alunoDao.buscarPorId(28);
 		if (alunoRetorno!=null){
 			System.out.println("nome: "+alunoRetorno.getNome());
 		}

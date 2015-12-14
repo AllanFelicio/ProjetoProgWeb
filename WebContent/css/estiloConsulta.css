@@ -1,0 +1,93 @@
+﻿body{
+	font-family: Arial;
+	font-size: 14px;
+	padding 200px;
+}
+
+
+
+#pesq{
+  margin: center;
+}
+#addbig{
+
+width: 70px;
+height: 70px;
+}
+
+
+label{
+	display: block;
+	float: left;
+	font-size: 20px;
+	margin-left: 20px;
+	margin-top: 20px; 
+
+}
+#pesquisar{
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	width:1000px;
+	font-size: 20px;
+	padding: 5px;
+	margin-left: 20px;
+	margin-top: 15px;
+
+}
+
+#pesquisarimg{
+	display: block;
+	margin-top: 20px;
+	float: right;
+	margin-right: 173px;
+}
+
+
+
+nav#menu ul{
+
+	list-style: nome;
+}
+
+nav# menu li{
+   display: inline-block;
+   background-color: #dddddd;
+   padding: 10px;
+
+}
+
+
+
+table
+      {
+        font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+        width:100%;
+  		
+  		border-radius: 10px;
+
+
+      }
+      table td, th
+      {
+        border:1px solid #0096D9;
+        padding:3px 7px 2px 7px;
+        color:#000;
+       
+        border-radius: 10px;
+      }
+      table th
+      {
+        font-size:1.2em;
+        text-align:left;
+        padding-top:5px;
+        padding-bottom:4px;
+        background-color:#A7C3C7;
+        color:#fff;
+		border-radius: 10px;
+
+      }
+
+#rodape {
+ 	color:#DCEBEE;
+    background-color:#00377B;
+}

@@ -1,0 +1,56 @@
+body{
+	font-family: Arial;
+	font-size: 14px;
+	padding 200px;
+}
+
+fieldset{
+	
+	background-color: #EEE;
+	background: -webkit-gradient(linear, left top, left bottom(#F9#F9#F9), to(#EEE));
+	background: -moz-linear-gradient (top, #F9F9F9, #EEE);
+	border: 1px solid #FFF;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px #00;
+	width: 260px;
+	margin: auto;
+}
+label{
+	display: block;
+	padding: 5px;
+}
+label span{
+	display: block;
+	padding: 3px;
+	color: #999;
+}
+label input{
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	font-size: 13px;
+	padding: 5px
+	
+}
+label button{
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	background-color: #77AACC;
+	color: #FFF;
+	padding: 7px 24px
+}
+
+label select{
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	font-size: 13px;
+	padding: 5px
+
+}
+
+#rodape {
+ 	color:#DCEBEE;
+    background-color:#00377B;
+
+}
+

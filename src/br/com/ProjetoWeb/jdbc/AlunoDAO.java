@@ -45,7 +45,7 @@ private Connection con = Conexao.getConnection();
 	}
 
 	public void alterar(Aluno aluno){
-		String sql = "UPDATE ALUNO SET nome=?, matricula=?, senha=MD5(?), rg=?, cpf=?, email=?, sexo=?, pais=?, estado=?, escolaridade=?, curso=?, turno=?, WHERE id=?";
+		String sql = "UPDATE ALUNO SET nome=?, matricula=?, senha=MD5(?), rg=?, cpf=?, email=?, sexo=?, pais=?, estado=?, escolaridade=?, curso=?, turno=? WHERE id=?";
 
 		// constroe o PreparedStatement com sql
 		try {
@@ -70,7 +70,7 @@ private Connection con = Conexao.getConnection();
 			System.out.println("alterado com sucesso!");
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -103,6 +103,7 @@ private Connection con = Conexao.getConnection();
 	}
 
 	public List<Aluno> buscaTodos(){
+
 		String sql = "SELECT * FROM ALUNO";
 
 		List<Aluno> lista = new ArrayList<Aluno>();
@@ -142,6 +143,7 @@ private Connection con = Conexao.getConnection();
 		return lista;
 
 	}
+	
 	public Aluno buscarPorId(Integer id){
 		String sql="SELECT * FROM ALUNO WHERE ID = ?";
 		Aluno aluno = null;
@@ -175,6 +177,7 @@ private Connection con = Conexao.getConnection();
 		return aluno;
 
 	}
+	
 	public List<Aluno> buscarPorNome(String nome){
 		String sql="SELECT * FROM ALUNO WHERE NOME LIKE = ?";
 		List<Aluno> lista = new ArrayList<Aluno>();
@@ -213,7 +216,7 @@ private Connection con = Conexao.getConnection();
 	}
 
 	public Aluno autenticar(Aluno aluno){
-		String sql="SELECT * FROM ALUNO WHERE SENHA = ?";
+		String sql="SELECT * FROM ALUNO WHERE MATRICULA = ? AND SENHA = ?";
 		Aluno alunoRetorno = null;
 		try {
 			PreparedStatement preparador = con.prepareStatement(sql);
@@ -246,8 +249,9 @@ private Connection con = Conexao.getConnection();
 		return aluno;
 
 	}
+	
 	public boolean existeUsuario(Aluno aluno){
-		String sql="SELECT * FROM ALUNO WHERE LOGIN = ? AND SENHA = ?";
+		String sql="SELECT * FROM ALUNO WHERE MATRICULA = ? AND SENHA = ?";
 		try {
 			PreparedStatement preparador = con.prepareStatement(sql);
 			preparador.setString(2, aluno.getSenha());
@@ -257,10 +261,141 @@ private Connection con = Conexao.getConnection();
 			return resultado.next();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
 
 	}
+	
+//-------------------------------------------------------------------------
+
+	public boolean verificarAluno(String matricula, String senha){
+		
+		try{
+			// Consulta
+			String sql = "SELECT COUNT(*) AS TOTAL FROM ALUNO WHERE MATRICULA=? AND SENHA=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			
+			// Inserção de Dados
+			stmt.setString(1, matricula);
+			stmt.setString(2, senha);
+			
+			// Executar Query
+			ResultSet rs = stmt.executeQuery();
+			rs.next();
+			int total = rs.getInt("total");
+			if( total == 1 ){
+				return true;
+			}else{
+				return false;
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public ResultSet listaAlunos() throws SQLException{
+		
+		try{
+			// Consulta
+			String sql = "SELECT * FROM ALUNO";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			
+			// Executar Query
+			ResultSet rs = stmt.executeQuery();
+			return rs;
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public boolean removeAluno(String cpf) throws SQLException{
+
+		try{
+			// Deleta
+			String sql = "DELETE a.* FROM aluno a WHERE cpf=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			
+			// Inserção de Dados
+			stmt.setString(1, cpf);
+			
+			// Executar Query
+		stmt.executeUpdate();
+		return true;
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		}
+		return false;
+
+	}
+
+	/*	
+	public String totalAlunos() throws SQLException{
+		// Cria a Conexão com Banco de Dados
+		Connection conexao = criarConexao();
+		
+		try{
+			// Consulta
+			String sql = "SELECT count(*) as total FROM aluno a JOIN pessoa p, curso c WHERE a.cpf=p.cpf AND a.codigoCurso=c.codigo ORDER BY p.nome ASC";
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			
+			// Executar Query
+			ResultSet rs = stmt.executeQuery();
+			rs.next();
+			int total = rs.getInt("total");
+			if( total == 0 ){
+				return "Sem Registros";
+			}else if( total == 1 ){
+				return total+" registro";
+			}else{
+				return total+" registros";
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}
+	}
+*/
+	
+	public boolean inserirAluno(String nome, String senha, String matricula, String rg, String cpf, String email, String sexo, String pais, String estado, String escolaridade, String curso, String turno){
+		
+		try{
+			// Consulta
+			String sql = "INSERT INTO ALUNO (nome, senha, matricula, rg, cpf, email, sexo, pais, estado, escolaridade, curso, turno) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+			
+			// Inserção de Dados
+			PreparedStatement preparador = con.prepareStatement(sql);
+			
+			preparador.setString(1, nome);
+			preparador.setString(2, senha);
+			preparador.setString(3, matricula);
+			preparador.setString(4, rg);
+			preparador.setString(5, cpf);
+			preparador.setString(6, email);
+			preparador.setString(7, sexo);
+			preparador.setString(8, pais);
+			preparador.setString(9, estado);
+			preparador.setString(10, escolaridade);
+			preparador.setString(11, curso);
+			preparador.setString(12, turno);
+			
+			// Executar Query
+			preparador.execute();
+			return true;
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 }

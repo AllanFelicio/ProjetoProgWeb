@@ -1,0 +1,177 @@
+/*body{
+	font-family: candara;
+	font-size: 14px;
+	padding 200px;
+}*/
+
+#header {
+	/*background-color:#146DFF;*/
+	color:white;
+	text-align:center;
+	padding:5px;
+}
+			
+#cadastrar{
+	background: url("../img/add.png");
+}
+
+#cancelarbig{
+	width: 70px;
+	height: 70px;
+}
+
+#okbig{
+	width: 70px;
+	height: 70px;
+}
+
+#pesquisarbut{
+	background: url("../img/pesquisar.png");	
+}
+#Conteudo{
+	background-color: #EEE;
+	background: -webkit-gradient(linear, left top, left bottom(#F9#F9#F9), to(#EEE));
+	background: -moz-linear-gradient (top, #F9F9F9, #EEE);
+	border: 1px solid #FFF;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px #00;
+	width: 330px;
+	margin: auto;
+}
+
+label{
+	display: block;
+	padding: 5px;
+}
+
+label span{
+	display: block;
+	padding: 3px;
+	color: #999;
+}
+
+label input{
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 5px;
+	size: 30;
+}
+
+#acessar{
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	background-color: #77AACC;
+	color: #FFF;
+	padding: 7px 24px;
+}
+
+label button{
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	background-color: #77AACC;
+	color: #FFF;
+	padding: 7px 24px
+}
+
+label select{
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 5px
+}
+
+#rodape {
+ 	color:#DCEBEE;
+    background-color:#00377B;
+}
+
+nav#menu ul{
+	list-style: nome;
+}
+
+nav# menu li{
+   display: inline-block;
+   background-color: #dddddd;
+   padding: 10px;
+}
+
+#footer {
+	color:#DCEBEE;
+    background-color:#00377B;
+    text-align: center;
+    /*background: #1e467a;
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(30, 70, 122);
+    color: #fff;
+    display: table;
+    font-size: 100%;
+    font-family: orient;
+    padding: 0px;
+    width: 100%;*/
+}
+
+.btm_cad{
+	width:70px;
+	height:70px;
+	background:url(../img/okbig.png) no-repeat;
+	background-size:100%;
+	background-position:center center;
+	position:relative;
+	float:left;
+	margin-right:10px;
+	cursor:pointer;
+}
+
+.btm_cad2{
+	width:70px;
+	height:70px;
+	background:url(../img/cancelarbig.png) no-repeat;
+	background-size:100%;
+	background-position:center center;
+	position:relative;
+	float:left;
+	cursor:pointer;
+}
+
+
+.cad_usuario{
+	font-weight:100;
+}
+
+::-webkit-input-placeholder {
+   color: #ccc;
+   font: 15px calibri;
+   font-weight:100;
+   line-height:25px;
+}
+
+select{
+   -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+   -moz-appearance: none; /* Remove estilo padrão do FireFox */
+   appearance: none; /* Remove estilo padrão do FireFox*/
+   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;  /* Imagem de fundo (Seta) */
+   background-position: 218px center;  /*Posição da imagem do background*/
+   width: 250px; /* Tamanho do select, maior que o tamanho da div "div-select" */
+   height:30px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
+   border:1px solid #ddd;
+   color:#909090;
+}
+
+
+
+
+
+
+
+
+

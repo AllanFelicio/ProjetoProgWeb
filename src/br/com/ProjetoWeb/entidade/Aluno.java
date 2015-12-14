@@ -1,7 +1,7 @@
 package br.com.ProjetoWeb.entidade;
 
 public class Aluno {
-
+ 
 	private int id;
 	private String nome;
 	private String senha;
